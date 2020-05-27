@@ -1,11 +1,12 @@
 {
   "name": "boxjam",
-  "version": "0.0.2",
+  "version": "0.0.21",
   "description": "Take the boxes, and jam them in the bigger box",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sean M. Tracey",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/seanmtracey/boxjam"
 }
