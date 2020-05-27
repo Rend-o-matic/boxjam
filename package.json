@@ -1,6 +1,6 @@
 {
   "name": "boxjam",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Take the boxes, and jam them in the bigger box",
   "main": "index.js",
   "scripts": {

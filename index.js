@@ -2,9 +2,9 @@
 function normaliseHeights(nodes){
 
     // sort nodes by height
-    var sortedNodes = nodes.sort( (a,b) => {
+    const sortedNodes = nodes.concat().sort( (a,b) => {
 
-        if(a.h > b.b){
+        if(a.height > b.height){
             return 1
         } else {
             return -1;
@@ -13,16 +13,16 @@ function normaliseHeights(nodes){
     } );
 
     // Get the median height of the nodes in the set;
-    const medianHeight = sortedNodes[sortedNodes.length / 2 | 0].h;
+    const medianHeight = sortedNodes[sortedNodes.length / 2 | 0].height;
 
     // Then proportionately scale all of the nodes to be the same height as the median height.
     return nodes.map(node => {
 
-        const newW = medianHeight * node.w / node.h;
-        const newH = newW * node.h / node.w;
+        const newW = medianHeight * node.width / node.height;
+        const newH = newW * node.height / node.width;
 
-        node.w = newW;
-        node.h = newH;
+        node.width = newW;
+        node.height = newH;
 
         return node;
 
@@ -33,8 +33,8 @@ function normaliseHeights(nodes){
 function shrink(nodes, shrinkPercentage = 0.9){
 
     return nodes.map(node => {
-        node.h = Math.ceil(node.h * shrinkPercentage);
-        node.w = Math.ceil(node.w * shrinkPercentage);
+        node.height = Math.ceil(node.height * shrinkPercentage);
+        node.width = Math.ceil(node.width * shrinkPercentage);
         return node;
     });
 
@@ -66,21 +66,21 @@ function fit(nodes, container, margin = 0, center = false, normalise = true){
 
         if(idx !== 0){
 
-            node.x = margin + nodes[idx - 1].x + nodes[idx - 1].w;
+            node.x = margin + nodes[idx - 1].x + nodes[idx - 1].width;
             node.y = nodes[idx - 1].y;
 
             // If the nodes right hand side is beyond the width of the 
             // container, reset x to the margin value and push the rectangle
             //  onto a new row.
-            if(node.x + node.w > container.w){
+            if(node.x + node.width > container.width){
                 node.x = margin;
-                node.y = margin + nodes[idx - 1].y + nodes[idx - 1].h;
+                node.y = margin + nodes[idx - 1].y + nodes[idx - 1].height;
             }
 
             // If the bottom of the rectangle is beyond the bottom of the container
             // we shrink all of the rectangles by 10%, and then we start the process 
             // over again. Yes, this is a recursive function.
-            if(node.y + node.h > container.h){
+            if(node.y + node.height > container.height){
                 nodes = shrink(nodes);
                 nodes = fit(nodes, container, margin, false, false);
             }
@@ -134,16 +134,16 @@ function fit(nodes, container, margin = 0, center = false, normalise = true){
         const adjustedNodes = [];
 
         // Calculate the vertical offset for all of the rectangles
-        const extremeBottomOfSet = rows[rows.length - 1][0].y + rows[rows.length - 1][0].h;
-        const verticalCenterOffset = ((container.h - extremeBottomOfSet) / 2 | 0) - (margin / 2);
+        const extremeBottomOfSet = rows[rows.length - 1][0].y + rows[rows.length - 1][0].height;
+        const verticalCenterOffset = ((container.height - extremeBottomOfSet) / 2 | 0) - (margin / 2);
 
         rows.forEach(row => {
             
             // Get the last item from the row and use it to calculate the horizontal offset
             // for all of the rectangles in this row
             const lastItem = row[row.length - 1];
-            const extremeRightOfRow = lastItem.x + lastItem.w;
-            const horizontalCenterOffset = ((container.w - extremeRightOfRow) / 2 | 0) - (margin / 2);
+            const extremeRightOfRow = lastItem.x + lastItem.width;
+            const horizontalCenterOffset = ((container.width - extremeRightOfRow) / 2 | 0) - (margin / 2);
 
             // Then apply the x and y offsets to each rectangle.
             row.forEach(node => {
