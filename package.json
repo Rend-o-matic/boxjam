@@ -7,6 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sean M. Tracey",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "homepage": "https://github.com/seanmtracey/boxjam"
 }
