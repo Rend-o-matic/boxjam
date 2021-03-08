@@ -24,7 +24,7 @@ const boxjam = require('boxjam');
 const rectangles = [
     {id : 1, width : 640, height : 480 },
     {id : 2, width : 720, height : 480 },
-    {id : 3, width : 200, height : 100},
+    {id : 3, width : 200, height : 100 },
     {id : 4, width : 300, height : 150 }
 ];
 
@@ -49,13 +49,20 @@ console.log(adjustedRectangles);
 
 ## boxjam Arguments
 
-### boxjam(`[RECTANGLES ARRAY]`, `[CONTAINER OBJ]`, `[MARGIN NUMBER]`, `[SHOULD CENTER BOOL]`)
+```javascript
+boxjam(
+    `[RECTANGLES ARRAY]`, 
+    `[CONTAINER OBJ]`, 
+    `[MARGIN NUMBER]`, 
+    `[SHOULD CENTER BOOL]`
+);
+```
 
 #### RECTANGLES
 
 This is a list of objects which have `width` and `height` properties. The `width` and `height` properties should be integers, but will work with floats. Floats and integers will be rounded by the algorithm. The objects can have other properties passed (such as an ID) which will be returned along with the calculated values.
 
-```javascript
+```json
 [ 
     {
         width : <NUMBER>,
@@ -72,7 +79,7 @@ This is a list of objects which have `width` and `height` properties. The `width
 
 An object which contains `height` and `width` properties of the container you wish to fit the rectangles into.
 
-```javascript
+```json
 {
     width : <NUMBER>
     height : <NUMBER>
