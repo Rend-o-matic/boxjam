@@ -3,7 +3,7 @@ Make the little boxes fit inside the bigger box.
 
 ## Description
 
-This module was created as part of the [Choirless project](https://github.com/choirless).
+This module was originally created as part of the [Choirless project](https://github.com/choirless).
 
 We needed a way to figure out how to fit _n_ rectangles of varying dimensions into a set space so we could render a video wall of varying participant numbers without having to have preset spaces or dimensions for each case.
 
