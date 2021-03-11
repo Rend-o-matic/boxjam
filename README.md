@@ -1,9 +1,10 @@
 # boxjam
+
 Make the little boxes fit inside the bigger box.
 
 ## Description
 
-This module was originally created as part of the [Choirless project](https://github.com/choirless).
+This module was created as part of the [Choirless project](https://github.com/choirless), now released as part of [Rend-o-matic](https://github.com/Rend-o-matic).
 
 We needed a way to figure out how to fit _n_ rectangles of varying dimensions into a set space so we could render a video wall of varying participant numbers without having to have preset spaces or dimensions for each case.
 
@@ -87,6 +88,7 @@ An object which contains `height` and `width` properties of the container you wi
 ```
 
 #### MARGIN
+
 _Default: 0_
 
 If you wish to have a space between your rectangles, you can pass a number as the `margin` argument. This value is relative to the container dimensions and the spaces.
