@@ -65,7 +65,7 @@ boxjam(
 
 This is a list of objects which have `width` and `height` properties. The `width` and `height` properties should be integers, but will work with floats. Floats and integers will be rounded by the algorithm. The objects can have other properties passed (such as an ID) which will be returned along with the calculated values.
 
-```json
+```javascript
 [ 
     {
         width : <NUMBER>,
@@ -82,7 +82,7 @@ This is a list of objects which have `width` and `height` properties. The `width
 
 An object which contains `height` and `width` properties of the container you wish to fit the rectangles into.
 
-```json
+```javascript
 {
     width : <NUMBER>
     height : <NUMBER>
